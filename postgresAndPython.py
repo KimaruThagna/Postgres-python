@@ -1,11 +1,10 @@
-import psycopg2 as pg
+import psycopg2 as pg #python connection library to postgres db
 # connect to postgres databse
 con=pg.connect("dbname='pythontrials' user='postgres' host='localhost'password='postgres'")
 # create a cursor to hold sql statements
 cursor=con.cursor()
-# store command
+# store command in the cursor
 cursor.execute("select * from contacts")
-
 data=cursor.fetchall()
 for r in data:
      print(r)
@@ -17,7 +16,7 @@ d_data=cur.fetchall()
 print(d_data)
 
 #=======================================
-# one can select a tbale in postgres and output the sql result in json format
+# one can select a table in postgres and output the sql result in json format
 #=======================================
 
 #SELECT row_to_json(contacts) from contacts;
